@@ -67,25 +67,12 @@ The package also ships a standalone build at `dist/polyfill.js`. Load it before 
 
 It installs `document.modelContext` as soon as it runs.
 
-### Next.js
-
-In Next.js 15.3+, add this to `instrumentation-client.ts` beside `app` (or `src/instrumentation-client.ts` beside `src/app`):
-
-```ts
-import "@w3c/webmcp-polyfill/auto";
-```
-
-Next.js runs [client instrumentation](https://nextjs.org/docs/app/api-reference/file-conventions/instrumentation-client) before hydration. A Server Component import alone won't install the polyfill in the browser.
-
-Both entry points are SSR-safe: installation does nothing without a document. Your pages can stay server-rendered; WebMCP runs in the browser.
-
-The package needs no `"use client"` directive. Use it on your [Client Components](https://nextjs.org/docs/app/api-reference/directives/use-client) and access `document.modelContext` in effects or event handlers. Pass an `AbortSignal` when registering in an effect, then abort it during cleanup.
-
 ### Frameworks
 
 Guides for other frameworks:
 
 - [Angular](https://github.com/w3c-oss/webmcp-polyfill/blob/main/docs/frameworks/angular.md)
+- [Next.js](https://github.com/w3c-oss/webmcp-polyfill/blob/main/docs/frameworks/nextjs.md)
 
 ## Frames
 
